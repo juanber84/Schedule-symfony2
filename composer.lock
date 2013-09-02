@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "06cb6882e50215f6f24461508e30a5e6",
+    "hash": "8f73ce5857fb86378e6b136164e7c676",
     "packages": [
         {
             "name": "doctrine/common",
@@ -278,18 +278,18 @@
             "time": "2013-05-11 07:51:12"
         },
         {
-            "name": "fourcoders/cacheclear-bundle",
+            "name": "fourcoders/cache-clear-bundle",
             "version": "dev-master",
             "target-dir": "Fourcoders/Bundle/CacheclearBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fourcoders/cacheclearbundle.git",
-                "reference": "773414115515d7e2fc1672f6a76ff257981caf0e"
+                "url": "https://github.com/fourcoders/Cacheclearbundle.git",
+                "reference": "67079c7639cd74d1a30628a4ffd3259a574cfc67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fourcoders/cacheclearbundle/zipball/773414115515d7e2fc1672f6a76ff257981caf0e",
-                "reference": "773414115515d7e2fc1672f6a76ff257981caf0e",
+                "url": "https://api.github.com/repos/fourcoders/Cacheclearbundle/zipball/67079c7639cd74d1a30628a4ffd3259a574cfc67",
+                "reference": "67079c7639cd74d1a30628a4ffd3259a574cfc67",
                 "shasum": ""
             },
             "require": {
@@ -318,7 +318,7 @@
                 "crud",
                 "symfony"
             ],
-            "time": "2013-08-31 13:59:06"
+            "time": "2013-09-02 20:22:47"
         },
         {
             "name": "fourcoders/generatecrud-bundle",
@@ -1454,7 +1454,7 @@
         "friendsofsymfony/user-bundle": 20,
         "fourcoders/generatecrud-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "fourcoders/cacheclear-bundle": 20
+        "fourcoders/cache-clear-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
