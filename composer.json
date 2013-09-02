@@ -3,10 +3,15 @@
     "license": "MIT",
     "type": "project",
     "description": "A \"Schedule Job\" with \"Symfony Framework Edition\" ",
+    "keywords": ["schedule", "juanber84", "symfony2", "proyect"],    
     "autoload": {
         "psr-0": { "": "src/" }
     },
-     "minimum-stability": "dev",
+    "authors": [{
+            "name": "Juan Berzal",
+            "homepage": "http://juanberzal.com/",
+            "email": "juanber84@gmail.com"
+        }],     
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -25,6 +30,7 @@
         "knplabs/knp-paginator-bundle": "2.3.*@dev",
         "fourcoders/cacheclear-bundle": "dev-master"
     },
+    "minimum-stability": "dev",    
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -46,12 +52,6 @@
     },
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "@dev"
-        }
+        "symfony-web-dir": "web"
     }
 }
