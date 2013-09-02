@@ -30,7 +30,6 @@
         "knplabs/knp-paginator-bundle": "2.3.*@dev",
         "fourcoders/cacheclear-bundle": "dev-master"
     },
-    "minimum-stability": "dev",    
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
