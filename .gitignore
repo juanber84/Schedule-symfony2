@@ -1,0 +1,10 @@
+web/bundles/
+app/bootstrap*
+app/cache/*
+app/logs/*
+vendor/
+app/config/parameters.yml
+nbproject/*
+web/js/*
+web/css/*
+web/images/*
