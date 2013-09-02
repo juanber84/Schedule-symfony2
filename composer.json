@@ -6,6 +6,7 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -50,7 +51,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "@dev"
         }
     }
 }
