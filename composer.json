@@ -28,7 +28,7 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "fourcoders/generatecrud-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "2.3.*@dev",
-        "fourcoders/cacheclear-bundle": "dev-master"
+        "fourcoders/cache-clear-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
