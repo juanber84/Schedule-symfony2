@@ -1,5 +1,5 @@
-Schedule-symfony2
-=================
+Schedule-symfony2 -- ALPHA --
+=============================
 
 A simple schedule with symfony2 framework
 
