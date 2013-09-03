@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+<a href="{{ path('fos_user_security_logout') }}">logout</a>
     <h1>Jobs list</h1>
 
     <table class="records_list">
