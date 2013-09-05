@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tuktuk - Application Example</title>
+    <title>Job's Schedule</title>
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	{% stylesheets 'bundles/juanber84schedule/css/*' filter='cssrewrite' %}
@@ -41,29 +41,29 @@
             <nav data-tuktuk="menu" class="text bold">
         	{% set menu = app.request.attributes.get('_route') %}
 			{% if menu == 'schedule_jobs' or menu == 'schedule_jobs_new' or menu == 'schedule_jobs_edit' %}
-                <a href="{{path('schedule_jobs')}}" class="active"><span class="icon user"></span>Jobs</a>
+                <a href="{{path('schedule_jobs')}}" class="active"><span class="icon pencil"></span>Jobs</a>
 			{% else %}
-                <a href="{{path('schedule_jobs')}}" ><span class="icon user"></span>Jobs</a>
+                <a href="{{path('schedule_jobs')}}" ><span class="icon pencil"></span>Jobs</a>
 			{% endif %}             	
 			{% if menu == 'schedule_proyects' or menu == 'schedule_proyects_new' or menu == 'schedule_proyects_edit' %}
-                <a href="{{path('schedule_proyects')}}" class="active"><span class="icon heart"></span>Proyects</a>
+                <a href="{{path('schedule_proyects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
 			{% else %}
-                <a href="{{path('schedule_proyects')}}"><span class="icon heart"></span>Proyects</a>
+                <a href="{{path('schedule_proyects')}}"><span class="icon folder-close"></span>Proyects</a>
 			{% endif %}     
 			{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' %}
-                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon group"></span>Activities</a>
+                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon exchange"></span>Activities</a>
 			{% else %}
-                <a href="{{path('schedule_activitys')}}"><span class="icon group"></span>Activities</a>
+                <a href="{{path('schedule_activitys')}}"><span class="icon exchange"></span>Activities</a>
 			{% endif %}     
 			{% if menu == 'schedule_user' or menu == 'schedule_user_new' or menu == 'schedule_user_edit' %}
-                <a href="{{path('schedule_user')}}" class="active"><span class="icon star"></span>Users</a>
+                <a href="{{path('schedule_user')}}" class="active"><span class="icon group"></span>Users</a>
 			{% else %}
-                <a href="{{path('schedule_user')}}"><span class="icon star"></span>Users</a>
+                <a href="{{path('schedule_user')}}"><span class="icon group"></span>Users</a>
 			{% endif %}     						
             </nav>
         </article>
         <footer class="bck dark text center">
-            Handcrafted by <a href="http://tapquo.com" class="display inline"><img src="http://cdn.tapquo.com/images/logo_footer.png"/></a>
+            Fork me on <a href="https://github.com/juanber84/Schedule-symfony2" class="display inline">Github</a>
         </footer>
     </aside>
 
@@ -71,7 +71,7 @@
 
     <section>
         <header>
-            <h3 class="on-left text thin">Job's Schedule <span class="tag bck theme">NEW!</span></h3>
+            <h3 class="on-left text thin">Job's Schedule </h3>
             <nav class="on-right">
                 <a href="{{ path('fos_user_security_logout') }}"><button class="alert">Logout</button></a>
             </nav>

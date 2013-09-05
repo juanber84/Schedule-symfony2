@@ -23,4 +23,10 @@ class User extends BaseUser
         parent::__construct();
         $this->roles = array('ROLE_USER');
     }
+
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+
 }
