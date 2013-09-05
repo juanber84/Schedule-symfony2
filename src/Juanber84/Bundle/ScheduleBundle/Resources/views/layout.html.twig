@@ -44,22 +44,24 @@
                 <a href="{{path('schedule_jobs')}}" class="active"><span class="icon pencil"></span>Jobs</a>
 			{% else %}
                 <a href="{{path('schedule_jobs')}}" ><span class="icon pencil"></span>Jobs</a>
-			{% endif %}             	
-			{% if menu == 'schedule_proyects' or menu == 'schedule_proyects_new' or menu == 'schedule_proyects_edit' %}
-                <a href="{{path('schedule_proyects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
-			{% else %}
-                <a href="{{path('schedule_proyects')}}"><span class="icon folder-close"></span>Proyects</a>
-			{% endif %}     
-			{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' %}
-                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon exchange"></span>Activities</a>
-			{% else %}
-                <a href="{{path('schedule_activitys')}}"><span class="icon exchange"></span>Activities</a>
-			{% endif %}     
-			{% if menu == 'schedule_user' or menu == 'schedule_user_new' or menu == 'schedule_user_edit' %}
-                <a href="{{path('schedule_user')}}" class="active"><span class="icon group"></span>Users</a>
-			{% else %}
-                <a href="{{path('schedule_user')}}"><span class="icon group"></span>Users</a>
-			{% endif %}     						
+			{% endif %}      
+			{% if is_granted('ROLE_ADMIN') %}  	
+				{% if menu == 'schedule_proyects' or menu == 'schedule_proyects_new' or menu == 'schedule_proyects_edit' %}
+	                <a href="{{path('schedule_proyects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
+				{% else %}
+	                <a href="{{path('schedule_proyects')}}"><span class="icon folder-close"></span>Proyects</a>
+				{% endif %}     
+				{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' %}
+	                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon exchange"></span>Activities</a>
+				{% else %}
+	                <a href="{{path('schedule_activitys')}}"><span class="icon exchange"></span>Activities</a>
+				{% endif %}     
+				{% if menu == 'schedule_user' or menu == 'schedule_user_new' or menu == 'schedule_user_edit' %}
+	                <a href="{{path('schedule_user')}}" class="active"><span class="icon group"></span>Users</a>
+				{% else %}
+	                <a href="{{path('schedule_user')}}"><span class="icon group"></span>Users</a>
+				{% endif %}  
+			{% endif %}        						
             </nav>
         </article>
         <footer class="bck dark text center">
