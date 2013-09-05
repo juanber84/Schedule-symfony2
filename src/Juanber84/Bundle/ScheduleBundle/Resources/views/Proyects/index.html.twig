@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
     <h1>Proyects list</h1>
@@ -6,14 +6,14 @@
     <table class="records_list">
         <thead>
             <tr>
-                <td><input type="checkbox"></td>                <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Name', 'a.name') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Details', 'a.details') }} </th>
+                             <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Name', 'a.name') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Details', 'a.details') }} </th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in pagination %}
             <tr>
-                <td><input type="checkbox"></td>
+      
                 <td><a href="{{ path('schedule_proyects_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.details }}</td>

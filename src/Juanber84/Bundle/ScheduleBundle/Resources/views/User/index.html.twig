@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
     <h1>User list</h1>
@@ -6,14 +6,14 @@
     <table class="records_list">
         <thead>
             <tr>
-                <td><input type="checkbox"></td>                <th>{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Usernamecanonical', 'a.usernameCanonical') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Email', 'a.email') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Emailcanonical', 'a.emailCanonical') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Enabled', 'a.enabled') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Salt', 'a.salt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Password', 'a.password') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Lastlogin', 'a.lastLogin') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Locked', 'a.locked') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Expired', 'a.expired') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Expiresat', 'a.expiresAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Confirmationtoken', 'a.confirmationToken') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Passwordrequestedat', 'a.passwordRequestedAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Roles', 'a.roles') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Credentialsexpired', 'a.credentialsExpired') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Credentialsexpireat', 'a.credentialsExpireAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>
+                         <th>{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Usernamecanonical', 'a.usernameCanonical') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Email', 'a.email') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Emailcanonical', 'a.emailCanonical') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Enabled', 'a.enabled') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Salt', 'a.salt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Password', 'a.password') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Lastlogin', 'a.lastLogin') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Locked', 'a.locked') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Expired', 'a.expired') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Expiresat', 'a.expiresAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Confirmationtoken', 'a.confirmationToken') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Passwordrequestedat', 'a.passwordRequestedAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Roles', 'a.roles') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Credentialsexpired', 'a.credentialsExpired') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Credentialsexpireat', 'a.credentialsExpireAt') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in pagination %}
             <tr>
-                <td><input type="checkbox"></td>
+
                 <td><a href="{{ path('schedule_user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
                 <td>{{ entity.usernameCanonical }}</td>
                 <td>{{ entity.email }}</td>
@@ -24,12 +24,12 @@
                 <td>{% if entity.lastLogin %}{{ entity.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.locked }}</td>
                 <td>{{ entity.expired }}</td>
-                <td>{% if entity.expiresAt %}{{ entity.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{#% if entity.expiresAt %}{{ entity.expiresAt|date('Y-m-d H:i:s') }}{% endif %#}</td>
                 <td>{{ entity.confirmationToken }}</td>
-                <td>{% if entity.passwordRequestedAt %}{{ entity.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.roles }}</td>
+                <td>{#% if entity.passwordRequestedAt %}{{ entity.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %#}</td>
+                <td>{#{ entity.roles }#}</td>
                 <td>{{ entity.credentialsExpired }}</td>
-                <td>{% if entity.credentialsExpireAt %}{{ entity.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{#% if entity.credentialsExpireAt %}{{ entity.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %#}</td>
                 <td>{{ entity.id }}</td>
                 <td>
                 <ul>
