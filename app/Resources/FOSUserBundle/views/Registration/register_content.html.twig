@@ -1,5 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
+<div class="column_9">
+	<div class="column_3 offset_3">
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 	<label for="email">{{ 'Email'|trans }}</label>
 	{{ form_widget(form.email) }}
@@ -13,4 +14,6 @@
     <div>
         <input type="submit" class="button large alert margin-top" id="_submit" name="_submit" value="Create" />
     </div>
+    </div>
+</div>
 </form>
