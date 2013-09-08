@@ -86,10 +86,10 @@ class Jobs
     /**
      * Set userid
      *
-     * @param \Noskasamos\AdminBundle\Entity\User $userid
+     * @param \Juanber84\Bundle\ScheduleBundle\Entity\User $userid
      * @return userid
      */        
-    public function setUserid(\Noskasamos\AdminBundle\Entity\User $userid = null)
+    public function setUserid(\Juanber84\Bundle\ScheduleBundle\Entity\User $userid = null)
     {
         $this->userid = $userid;
     }
@@ -97,7 +97,7 @@ class Jobs
     /**
      * Get userid
      *
-     * @return \Noskasamos\ModelBundle\Entity\User
+     * @return \Juanber84\ModelBundle\Entity\User
      */       
     public function getUserid()
     {
@@ -107,10 +107,10 @@ class Jobs
     /**
      * Set proyectid
      *
-     * @param \Noskasamos\AdminBundle\Entity\Proyects $proyectid
+     * @param \Juanber84\Bundle\ScheduleBundle\Entity\Proyects $proyectid
      * @return proyectid
      */        
-    public function setProyectid(\Noskasamos\AdminBundle\Entity\Proyects $proyectid = null)
+    public function setProyectid(\Juanber84\Bundle\ScheduleBundle\Entity\Proyects $proyectid = null)
     {
         $this->proyectid = $proyectid;
     }
@@ -118,7 +118,7 @@ class Jobs
     /**
      * Get proyectid
      *
-     * @return \Noskasamos\ModelBundle\Entity\Proyects
+     * @return \Juanber84\ModelBundle\Entity\Proyects
      */       
     public function getProyectid()
     {
@@ -128,10 +128,10 @@ class Jobs
     /**
      * Set activityid
      *
-     * @param \Noskasamos\AdminBundle\Entity\Activity $activityid
+     * @param \Juanber84\Bundle\ScheduleBundle\Entity\Activity $activityid
      * @return activityid
      */        
-    public function setActivityid(\Noskasamos\AdminBundle\Entity\Activity $activityid = null)
+    public function setActivityid(\Juanber84\Bundle\ScheduleBundle\Entity\Activity $activityid = null)
     {
         $this->activityid = $activityid;
     }

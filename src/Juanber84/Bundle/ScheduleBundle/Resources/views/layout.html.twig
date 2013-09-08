@@ -89,43 +89,11 @@
         </footer>
     </section>
 
-    <div id="modal" data-tuktuk="modal" class="column_5">
-        <header>
-            <h4 class="text book inline">Normal window</h4>
-            <button data-modal="close" class="transparent small on-right inline icon remove"></button>
-        </header>
-        <article>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum assumenda aperiam nobis quam earum nihil veritatis modi possimus blanditiis perferendis obcaecati voluptatibus fuga eaque ad et atque nostrum porro expedita!
-        </article>
-    </div>
-
-    <div id="modal-right" data-tuktuk="modal" class="side column_5">
-        <header>
-            <h4 class="inline text book">Side window.</h4>
-            <button data-modal="close" class="transparent small on-right inline icon remove"></button>
-        </header>
-        <article class="form">
-            <label>example of input</label>
-            <input type="text" value="text" />
-            <input type="text" class="large" value="text" />
-
-            <label>Example of textarea</label>
-            <textarea>textarea</textarea>
-            <textarea class="large">textarea</textarea>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos dolorum minus fugiat rem similique velit aperiam est sequi neque nulla tenetur minima autem facilis temporibus quaerat consectetur impedit praesentium.
-        </article>
-        <footer>
-            <button data-modal="close">Save</button>
-        </footer>
-    </div>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	{% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
+	{#% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}    
-    <script>
-        TukTuk.Modal.loading();
-        setTimeout( TukTuk.Modal.hide, 1000);
-    </script>
+	{% endjavascripts %#}    
+
 </body>
 </html>
