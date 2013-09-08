@@ -1,7 +1,15 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
+	<label for="email">{{ 'Email'|trans }}</label>
+	{{ form_widget(form.email) }}
+	<label for="username">{{ 'Username'|trans }}</label>
+	{{ form_widget(form.username) }}	
+	<label for="password">{{ 'Password'|trans }}</label>
+	{{ form_widget(form.plainPassword.first) }}	
+	<label for="password">{{ 'Confirm Password'|trans }}</label>
+	{{ form_widget(form.plainPassword.second) }}	
+    {{ form_rest(form) }}
     <div>
         <input type="submit" class="button large alert margin-top" id="_submit" name="_submit" value="Create" />
     </div>
