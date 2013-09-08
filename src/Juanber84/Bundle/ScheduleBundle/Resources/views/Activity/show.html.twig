@@ -1,7 +1,7 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Activity</h1>
+    <h4 class="text book inline"><span class="icon exchange color theme "></span> Activities </h4>      
 
     <table class="record_properties">
         <tbody>
@@ -18,12 +18,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('schedule_activitys') }}">
+        <a class="button secondary" href="{{ path('schedule_activitys') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('schedule_activitys_edit', { 'id': entity.id }) }}">
+        <a class="button secondary" href="{{ path('schedule_activitys_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

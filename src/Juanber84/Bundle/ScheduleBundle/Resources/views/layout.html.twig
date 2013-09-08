@@ -29,6 +29,14 @@
             height: 220px;
             line-height: 220px;
         }
+
+        li{
+            position: relative;
+            float: left;
+            list-style: none;
+            margin-right: 5px; 
+        }
+
     </style>
 </head>
 <body data-tuktuk="boxes">
@@ -51,7 +59,7 @@
 				{% else %}
 	                <a href="{{path('schedule_proyects')}}"><span class="icon folder-close"></span>Proyects</a>
 				{% endif %}     
-				{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' %}
+				{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' or menu == 'schedule_activitys_show' %}
 	                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon exchange"></span>Activities</a>
 				{% else %}
 	                <a href="{{path('schedule_activitys')}}"><span class="icon exchange"></span>Activities</a>
