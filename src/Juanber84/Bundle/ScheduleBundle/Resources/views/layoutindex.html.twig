@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>tuktuk - Landing Example</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    {% stylesheets 'bundles/juanber84schedule/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <style>
+        body > header .logo {
+            margin-top: 8px;
+            margin-right: 8px;
+            max-height: 30px; }
+
+        body > footer img {
+            height: 18px;
+            position: relative;
+            top: 5px;
+            left: 2px; }
+
+        section.landing input {
+            border-radius: 1px 0px 0px 1px !important;
+            height: 48px;}
+
+        section.landing button {
+            border-radius: 0px 1px 1px 0px !important;
+            height: 48px;}
+
+        .button.large, button.large {
+            font-size: 1.3em;}
+    </style>
+</head>
+<body>
+    <a href="https://github.com/juanber84/Schedule-symfony2"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <!-- ========================== HEADER ========================== -->
+    <header class="bck margin-top margin-bottom">
+        <div class="row">
+
+            <nav class="column_12 text right">
+                <a href="{{ path('fos_user_security_login') }}" class="button secondary"><span class="icon user"></span>Login</a>
+                <a href="/app_dev.php/register" class="button"><span class="icon pencil"></span>Signup</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bck theme landing text center">
+        <div class="row">
+            <div class="column_10 offset_1">
+                <h1><strong>Schedule</strong>job</h1>
+                <h2 class="margin-bottom">A schedule job developed with Symfony2 framework and tuktuk for the layout.</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding bck light">
+        <div class="row margin-bottom">
+            <div class="column_10 offset_1 text center">
+                <h1 class="color book theme">Author</h1>
+                <h3 class="text thin">I'm Juan Berzal a Web developer. You can see my website <a href="http://juanberzal.com" class="text normal">juanberzal.com</a>. I'm founder of <a href="http://fourcoders.com" class="text normal">foucoders.com</a>, a little group of developers and friends. You can fork me on <a href="http://github.com/juanber84" class="text normal">Github</a>.</h3>
+             </div>
+         </div>
+
+        <div class="row ">
+            <div class="column_4 offset_4 text center">
+                <img src="http://cdn.tapquo.com/photos/soyjavi.jpg" class="responsive rounded margin-bottom"/>
+                <a href="https://twitter.com/soyjavi" class="twitter-follow-button " data-show-count="true" data-dnt="true">Follow @soyjavi</a>
+                <script>
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bck dark padding">
+        <div class="row margin-top margin-bottom">
+            <div class="column_5">
+                <p class="text bold big">Handcrafted by <a href="http://tapquo.com" class="display inline"><img src="http://cdn.tapquo.com/images/logo_footer.png"/></a></p>
+                We're a  user experiences company located in <span class="text normal">Bilbao</span>, ES.
+            </div>
+            <div class="column_4">
+                <p class="text bold big">Join the team!</p>
+                Let us know how you're! <a href="mailto:hello@tapquo.com?subject=job" class="text underline color theme">Get in touch</a>
+            </div>
+            <div class="column_3">
+                <p class="text bold big">Need some help?</p>
+                For quick answers or help <a href="https://twitter.com/tapquo" target="_blank" class="text underline color theme">follow us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    {% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}   
+</body>
+</html>
