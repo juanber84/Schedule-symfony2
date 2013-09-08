@@ -1,31 +1,88 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Schedulejob</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    {% stylesheets 'bundles/juanber84schedule/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <style>
+        body > header .logo {
+            margin-top: 8px;
+            margin-right: 8px;
+            max-height: 30px; }
 
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for key, message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
+        body > footer img {
+            height: 18px;
+            position: relative;
+            top: 5px;
+            left: 2px; }
 
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+        section.landing input {
+            border-radius: 1px 0px 0px 1px !important;
+            height: 48px;}
+
+        section.landing button {
+            border-radius: 0px 1px 1px 0px !important;
+            height: 48px;}
+
+        .button.large, button.large {
+            font-size: 1.3em;}
+    </style>
+</head>
+<body>
+    <a href="https://github.com/juanber84/Schedule-symfony2"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <!-- ========================== HEADER ========================== -->
+    <header class="bck margin-top margin-bottom">
+        <div class="row">
+            <div class="column_6">
+                <h2 class="text italic thin"><a href="{{path('schedule_jobs_indexweb')}}"><strong>Schedule</strong>job</a></h2>
+            </div>
+            <nav class="column_6 text right">
+                <a href="{{ path('fos_user_security_login') }}" class="button secondary"><span class="icon user"></span>Login</a>
+                <a href="/app_dev.php/register" class="button"><span class="icon pencil"></span>Signup</a>
+            </nav>
         </div>
-    </body>
+    </header>
+
+    <section class="bck theme landing text center">
+        <div class="row">
+            <div class="column_10 offset_1">
+	            {% block fos_user_content %}
+	            {% endblock fos_user_content %}
+            </div>
+        </div>
+    </section>
+
+    <section class="padding bck light">
+        <div class="row margin-bottom">
+            <div class="column_10 offset_1 text center">
+                <h1 class="color book theme">Author</h1>
+                <h3 class="text thin">I'm Juan Berzal a Web developer. You can see my website <a href="http://juanberzal.com" class="text normal">juanberzal.com</a>. I'm founder of <a href="http://fourcoders.com" class="text normal">fourcoders.com</a>, a little group of developers and friends. You can fork me on <a href="http://github.com/juanber84" class="text normal">Github</a>.</h3>
+             </div>
+         </div>
+
+        <div class="row ">
+            <div class="column_4 offset_4 text center">
+                <img src="http://juanberzal.com/static/images/avatar.png" height="360" width="360" class="responsive rounded margin-bottom"/>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bck dark padding">
+        <div class="row margin-top margin-bottom">
+            <div class="column_5">
+                <p class="text bold big"><a target="_blank" href="http://symfony.com/" class="display inline">Symfony2</a> / <a target="_blank" href="http://tuktuk.tapquo.com/" class="display inline">tuktuk</a></p>
+                <p class="text bold big"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    {% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}   
+</body>
 </html>
