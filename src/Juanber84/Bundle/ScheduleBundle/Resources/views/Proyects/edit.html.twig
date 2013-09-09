@@ -1,19 +1,20 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Proyects edit</h1>
+    <h4 class="text book inline"><span class="icon folder-close color theme "></span> Proyects edit</h4>
 
     <form action="{{ path('schedule_proyects_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
         {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
-        </p>
-    </form>
-
+        <br>
         <ul class="record_actions">
     <li>
-        <a href="{{ path('schedule_proyects') }}">
+            <button type="submit">Edit</button>
+        </li>
+    </form>
+
+    <li>
+        <a class="button secondary" href="{{ path('schedule_proyects') }}">
             Back to the list
         </a>
     </li>

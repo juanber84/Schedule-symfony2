@@ -54,7 +54,7 @@
                 <a href="{{path('schedule_jobs')}}" ><span class="icon pencil"></span>Jobs</a>
 			{% endif %}      
 			{% if is_granted('ROLE_ADMIN') %}  	
-				{% if menu == 'schedule_proyects' or menu == 'schedule_proyects_new' or menu == 'schedule_proyects_edit' %}
+				{% if menu == 'schedule_proyects' or menu == 'schedule_proyects_new' or menu == 'schedule_proyects_edit' or menu == 'schedule_proyects_show' %}
 	                <a href="{{path('schedule_proyects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
 				{% else %}
 	                <a href="{{path('schedule_proyects')}}"><span class="icon folder-close"></span>Proyects</a>

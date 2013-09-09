@@ -1,18 +1,20 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Proyects creation</h1>
+    <h4 class="text book inline"><span class="icon folder-close color theme "></span> Proyects creation</h4>    
 
     <form action="{{ path('schedule_proyects_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
-        <p>
+        <br>
+        <ul class="record_actions">
+            <li>
             <button type="submit">Create</button>
-        </p>
+        </li>
     </form>
 
-        <ul class="record_actions">
+
     <li>
-        <a href="{{ path('schedule_proyects') }}">
+        <a class="button secondary" href="{{ path('schedule_proyects') }}">
             Back to the list
         </a>
     </li>
