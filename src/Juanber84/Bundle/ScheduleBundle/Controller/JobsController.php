@@ -29,7 +29,14 @@ class JobsController extends Controller
     {
 
         $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a";
+
+        if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a";
+        }else{
+            $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+            $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId;
+        }
+
         $query = $em->createQuery($dql);
 
         $paginator  = $this->get('knp_paginator');
