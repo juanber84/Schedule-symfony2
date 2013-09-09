@@ -18,7 +18,7 @@ security:
                 provider:   fos_userbundle
                 check_path: /login_check
                 login_path: /login
-                default_target_path: /schedule/jobs
+                default_target_path: /schedule
            #     use_referer:    true                
             logout:
                 path:          /logout

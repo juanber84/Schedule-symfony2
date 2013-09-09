@@ -23,7 +23,7 @@ class DefaultController extends Controller
     /**
      * Lists all Jobs entities.
      *
-     * @Route("/schedule", name="schedule_jobs_index")
+     * @Route("/schedule/", name="schedule_jobs_index")
      * @Template()
      */
     public function scheduleAction(Request $request)
