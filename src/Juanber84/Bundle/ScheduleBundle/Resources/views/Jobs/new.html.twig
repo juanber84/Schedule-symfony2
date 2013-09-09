@@ -6,14 +6,15 @@
 
     <form action="{{ path('schedule_jobs_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
-        <p>
+        <ul class="record_actions">
+            <li>
             <button type="submit">Create</button>
-        </p>
+        </li>
     </form>
 
-        <ul class="record_actions">
+
     <li>
-        <a href="{{ path('schedule_jobs') }}">
+        <a class="button secondary" href="{{ path('schedule_jobs') }}">
             Back to the list
         </a>
     </li>
