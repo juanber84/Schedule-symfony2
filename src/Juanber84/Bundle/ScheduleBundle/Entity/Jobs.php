@@ -61,14 +61,14 @@ class Jobs
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="enddatetime", type="datetime")
+     * @ORM\Column(name="enddatetime", type="datetime", nullable=true)
      */
     private $enddatetime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observations", type="string", length=255)
+     * @ORM\Column(name="observations", type="string", length=255, nullable=true)
      */
     private $observations;
 

@@ -48,6 +48,11 @@
         <article class="bck dark scroll">
             <nav data-tuktuk="menu" class="text bold">
         	{% set menu = app.request.attributes.get('_route') %}
+            {% if menu == 'schedule_jobs_index' %}
+                <a href="{{path('schedule_jobs_index')}}" class="active"><span class="icon laptop"></span>Punch</a>
+            {% else %}
+                <a href="{{path('schedule_jobs_index')}}" ><span class="icon laptop"></span>Punch</a>
+            {% endif %}              
 			{% if menu == 'schedule_jobs' or menu == 'schedule_jobs_new' or menu == 'schedule_jobs_edit' or menu == 'schedule_jobs_show' %}
                 <a href="{{path('schedule_jobs')}}" class="active"><span class="icon pencil"></span>Jobs</a>
 			{% else %}
