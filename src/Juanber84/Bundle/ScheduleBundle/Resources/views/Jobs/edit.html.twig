@@ -1,7 +1,8 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Jobs edit</h1>
+
+    <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs edit</h4>    
 
     <form action="{{ path('schedule_jobs_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />

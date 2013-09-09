@@ -1,7 +1,8 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Jobs creation</h1>
+
+    <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs creation</h4>    
 
     <form action="{{ path('schedule_jobs_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}

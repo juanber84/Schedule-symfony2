@@ -107,10 +107,15 @@ class JobsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        }else{
+            $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('id' => $id, 'userid' => $profileId ));            
+        }
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Jobs entity.');
+            throw $this->createNotFoundException('Unable to find Jobs entity or you dont have permisions.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -132,10 +137,15 @@ class JobsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        }else{
+            $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('id' => $id, 'userid' => $profileId ));            
+        }
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Jobs entity.');
+            throw $this->createNotFoundException('Unable to find Jobs entity or you dont have permisions.');
         }
 
         $editForm = $this->createForm(new JobsType(), $entity);
@@ -159,10 +169,15 @@ class JobsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+        }else{
+            $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('id' => $id, 'userid' => $profileId ));            
+        }
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Jobs entity.');
+            throw $this->createNotFoundException('Unable to find Jobs entity or you dont have permisions.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -195,10 +210,16 @@ class JobsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+            
+            if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+                $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->find($id);
+            }else{
+                $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+                $entity = $em->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('id' => $id, 'userid' => $profileId ));            
+            }
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Jobs entity.');
+                throw $this->createNotFoundException('Unable to find Jobs entity or you dont have permisions.');
             }
 
             $em->remove($entity);
