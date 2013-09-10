@@ -6,7 +6,7 @@
     <br><br>
     <form action="" method="post">
     <div class="column_9">
-    	<span class="icon folder-close"></span> Proyects
+    	<span class="icon folder-close"></span> Proyects <br><br>
     	<ul>
     	{% for proyect in proyects %}
     		<li>
@@ -19,8 +19,9 @@
     	{% endfor %}
     	</ul>
     </div>
+    <br><br><br><br>
     <div class="column_9">
-    	<span class="icon exchange"></span> Activities
+    	<span class="icon exchange"></span> Activities <br><br>
     	<ul>
     	{% for activity in activities %}
     		<li>
@@ -33,6 +34,12 @@
     	{% endfor %}
     	</ul>    	
     </div>
+    <br><br><br><br>	{% if job.proyectid.id is defined %}
+	<div class="column_9">
+		<textarea name="punch[observations]"></textarea> 			
+	</div>
+	<br>
+	{% endif %}        
     <div class="column_9">
     	<br>
 		{% if job.proyectid.id is defined %}
