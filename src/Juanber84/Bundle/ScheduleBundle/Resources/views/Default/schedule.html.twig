@@ -3,5 +3,32 @@
 {% block body -%}
     <h4 class="text book inline"><span class="icon laptop color theme "></span> Punch </h4>
 
+    <br><br>
+    <form action="" method="post">
+    <div class="column_9">
+    	<span class="icon folder-close"></span> Proyects
+    	<ul>
+    	{% for proyect in proyects %}
+    		<li>
+    			<input type="radio" name="punch[proyect]" value="{{proyect.id}}"> {{proyect.name}}
+    		</li>
+    	{% endfor %}
+    	</ul>
+    </div>
+    <div class="column_9">
+    	<span class="icon exchange"></span> Activities
+    	<ul>
+    	{% for activity in activities %}
+    		<li>
+    			<input type="radio" name="punch[activity]" value="{{activity.id}}"> {{activity.name}}
+    		</li>
+    	{% endfor %}
+    	</ul>    	
+    </div>
+    <div class="column_9">
+    	<br>
+    	<button type="submit" style="width:50%;height: 200px;">Inicio</button>
+    </div>
+    </form>
 
 {% endblock %}

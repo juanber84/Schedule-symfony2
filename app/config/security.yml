@@ -33,6 +33,6 @@ security:
 
     access_control:
         - { path: ^/schedule/jobs.*, roles: ROLE_USER}
-        - { path: ^/schedule/proyects.*, roles: ROLE_ADMIN}
+        - { path: ^/schedule/proyects.*, roles: ROLE_USER}
         - { path: ^/schedule/user.*, roles: ROLE_ADMIN}
         - { path: ^/schedule/activities.*, roles: ROLE_ADMIN}
