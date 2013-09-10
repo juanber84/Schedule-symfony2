@@ -43,16 +43,26 @@ class DefaultController extends Controller
             $profileId  = $user = $this->get('security.context')->getToken()->getUser(); 
             $proyect = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findOneById($punch['proyect']);
             $activitie = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findOneById($punch['activity']);
+            if ($job->getEnddatetime() == null && $job->getInitdatetime() == null) {
+                $job->setInitdatetime(new \DateTime('now'));
+            }else{
+                if ($job->getEnddatetime() == null) {
+                    $job->setEnddatetime(new \DateTime('now'));
+                }else{
+                    $job->setInitdatetime(new \DateTime('now'));
+                }                
+            }
             $job->setUserId($profileId);
             $job->setProyectid($proyect);
-            $job->setActivityid($activitie);
-            $job->setInitdatetime(new \DateTime('now'));
+            $job->setActivityid($activitie);            
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($job);
             $em->flush();
+            $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null));            
         }
 
         return array(
+            'job'           => $job,
             'proyects'      => $proyects,
             'activities'    => $activities,
         );

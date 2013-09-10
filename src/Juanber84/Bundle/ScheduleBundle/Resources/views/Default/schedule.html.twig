@@ -10,7 +10,11 @@
     	<ul>
     	{% for proyect in proyects %}
     		<li>
-    			<input type="radio" name="punch[proyect]" value="{{proyect.id}}"> {{proyect.name}}
+    			{% if job.proyectid.id is defined and proyect.id == job.proyectid.id %}
+    				<input type="radio" name="punch[proyect]" checked="checked" value="{{proyect.id}}"> {{proyect.name}}    			
+    			{% else %}
+    				<input type="radio" name="punch[proyect]" value="{{proyect.id}}"> {{proyect.name}}    			
+    			{% endif %}
     		</li>
     	{% endfor %}
     	</ul>
@@ -20,14 +24,22 @@
     	<ul>
     	{% for activity in activities %}
     		<li>
-    			<input type="radio" name="punch[activity]" value="{{activity.id}}"> {{activity.name}}
+    			{% if job.activityid.id is defined and activity.id == job.activityid.id %}
+    				<input type="radio" name="punch[activity]" checked="checked" value="{{activity.id}}"> {{activity.name}}  			
+    			{% else %}
+    				<input type="radio" name="punch[activity]" value="{{activity.id}}"> {{activity.name}}    			
+    			{% endif %}    			
     		</li>
     	{% endfor %}
     	</ul>    	
     </div>
     <div class="column_9">
     	<br>
-    	<button type="submit" style="width:50%;height: 200px;">Inicio</button>
+		{% if job.proyectid.id is defined %}
+			<button type="submit" style="width:50%;height: 200px;">Fin</button> 			
+		{% else %}
+    		<button type="submit" style="width:50%;height: 200px;">Inicio</button>   			
+		{% endif %}    	
     </div>
     </form>
 
