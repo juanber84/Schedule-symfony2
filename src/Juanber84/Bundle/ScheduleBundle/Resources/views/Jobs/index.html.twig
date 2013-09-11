@@ -4,7 +4,7 @@
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs list</h4>
 
     <div class="column_10">
-        {{ form_start(form) }}
+        <form method="post" action="{{path('schedule_jobs')}}">
             {{ form_errors(form) }}
 
             <div class="column_3">

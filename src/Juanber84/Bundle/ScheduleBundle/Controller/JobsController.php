@@ -22,10 +22,9 @@ class JobsController extends Controller
      * Lists all Jobs entities.
      *
      * @Route("/", name="schedule_jobs")
-     * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
 
         $em    = $this->get('doctrine.orm.entity_manager');
@@ -64,19 +63,34 @@ class JobsController extends Controller
                 'choices'   => $users,
                 'required'  => false,
             ))                 
-            ->add('Init', 'text')
-            ->add('End', 'text')            
+            ->add('Init', 'text', array(
+                'required'  => false,
+            ))
+            ->add('End', 'text', array(
+                'required'  => false,
+            ))            
             ->getForm();
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as saving the task to the database
+                echo "string"; exit;
+                return $this->redirect($this->generateUrl('task_success'));
+            }
+        }
+
 
         return array(
             'pagination' => $pagination,
             'form' => $form->createView(),
         );
     }
+
     /**
      * Creates a new Jobs entity.
      *
-     * @Route("/", name="schedule_jobs_create")
+     * @Route("/create", name="schedule_jobs_create")
      * @Method("POST")
      * @Template("Juanber84ScheduleBundle:Jobs:new.html.twig")
      */
