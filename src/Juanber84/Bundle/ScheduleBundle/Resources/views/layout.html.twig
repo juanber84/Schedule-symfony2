@@ -8,6 +8,8 @@
 	{% stylesheets 'bundles/juanber84schedule/css/*' filter='cssrewrite' %}
     	<link rel="stylesheet" href="{{ asset_url }}" />
 	{% endstylesheets %}
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <style>
         aside > header .logo {
             margin-top: 10px;
@@ -37,7 +39,23 @@
             margin-right: 5px; 
         }
 
+        #ui-datepicker-div{
+            z-index: 10;
+        }
+
+        .ui-datepicker-header{
+            background: #fff;
+            color: #34495e;
+            border: .1em solid #c4d2df;  
+        }
+
     </style>
+
+  <script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+  </script>    
 </head>
 <body data-tuktuk="boxes">
 
@@ -102,8 +120,6 @@
         </footer>
     </section>
 
-
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
 	{#% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %#}    

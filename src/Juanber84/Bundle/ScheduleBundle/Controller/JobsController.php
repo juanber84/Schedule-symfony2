@@ -32,9 +32,11 @@ class JobsController extends Controller
 
         if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a";
+            $users = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:User')->findAll();
         }else{
             $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
             $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId;
+            $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
         }
 
         $query = $em->createQuery($dql);
@@ -46,10 +48,22 @@ class JobsController extends Controller
             10/*limit per page*/
         );      
 
+        $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
+        $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
+
         $form = $this->createFormBuilder()
-            ->add('Proyect', 'text')
-            ->add('Activity', 'text')
-            ->add('User', 'text')            
+            ->add('Proyect', 'choice', array(
+                'choices'   => $proyects,
+                'required'  => false,
+            ))
+            ->add('Activity', 'choice', array(
+                'choices'   => $activities,
+                'required'  => false,
+            ))      
+            ->add('User', 'choice', array(
+                'choices'   => $users,
+                'required'  => false,
+            ))                 
             ->add('Init', 'text')
             ->add('End', 'text')            
             ->getForm();
