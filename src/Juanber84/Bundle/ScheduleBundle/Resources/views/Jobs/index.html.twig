@@ -2,45 +2,60 @@
 
 {% block body -%}
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs list</h4>
-    <table class="records_list">
-        <thead>
-            <tr>
-                            <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Initdatetime', 'a.initdatetime') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Enddatetime', 'a.enddatetime') }} </th>                <th>{{ knp_pagination_sortable(pagination, 'Observations', 'a.observations') }} </th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in pagination %}
-            <tr>
-                
-                <td><a href="{{ path('schedule_jobs_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.initdatetime %}{{ entity.initdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.observations }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('schedule_jobs_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('schedule_jobs_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <div class="navigation">
-        {{knp_pagination_render(pagination)}}
+    <div class="column_9">
+
     </div>
-        <br>
-        <ul>
-        <li>
-            <a class="button secondary" href="{{ path('schedule_jobs_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+
+    <div class="column_9">
+
+        <table class="records_list">
+            <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }} </th>                      
+                    <th>{{ 'User' }} </th>              
+                    <th>{{ knp_pagination_sortable(pagination, 'Initdatetime', 'a.initdatetime') }} </th> 
+                    <th>{{ knp_pagination_sortable(pagination, 'Enddatetime', 'a.enddatetime') }} </th>  
+                    <th>{{ 'Proyect' }} </th>
+                    <th>{{ 'Activity' }} </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+                <tr>
+                    <td><a href="{{ path('schedule_jobs_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.userid }}</td>
+                    <td>{% if entity.initdatetime %}{{ entity.initdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.proyectid }}</td>
+                    <td>{{ entity.activityid }}</td>
+                    <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('schedule_jobs_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('schedule_jobs_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation">
+            {{knp_pagination_render(pagination)}}
+        </div>
+            <br>
+            <ul>
+            <li>
+                <a class="button secondary" href="{{ path('schedule_jobs_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+    </div>
+
     {% endblock %}
