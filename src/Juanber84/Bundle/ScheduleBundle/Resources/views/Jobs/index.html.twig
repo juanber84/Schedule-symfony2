@@ -3,8 +3,46 @@
 {% block body -%}
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs list</h4>
 
-    <div class="column_9">
+    <div class="column_10">
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
 
+            <div class="column_3">
+                {{ form_label(form.Proyect) }}
+                {{ form_errors(form.Proyect) }}
+                {{ form_widget(form.Proyect) }}
+            </div>
+
+            <div class="column_3">
+                {{ form_label(form.Activity) }}
+                {{ form_errors(form.Activity) }}
+                {{ form_widget(form.Activity) }}
+            </div>
+            <div class="column_3">
+                {{ form_label(form.User) }}
+                {{ form_errors(form.User) }}
+                {{ form_widget(form.User) }}
+            </div>
+
+            <div class="column_4">
+                {{ form_label(form.Init) }}
+                {{ form_errors(form.Init) }}
+                {{ form_widget(form.Init) }}
+            </div>
+            <div class="column_1 ">
+                &nbsp;
+            </div>   
+            <div class="column_4 ">
+                {{ form_label(form.End) }}
+                {{ form_errors(form.End) }}
+                {{ form_widget(form.End) }}
+            </div>        
+            <div class="column_4 ">
+                <Button type="submit" />Filter</button>
+            </div>              
+        {{ form_rest(form) }}
+
+        {{ form_end(form) }}
     </div>
 
     <div class="column_9">

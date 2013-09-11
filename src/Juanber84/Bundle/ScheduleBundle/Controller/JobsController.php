@@ -44,11 +44,19 @@ class JobsController extends Controller
             $query,
             $this->get('request')->query->get('page', 1)/*page number*/,
             10/*limit per page*/
-        );        
+        );      
 
+        $form = $this->createFormBuilder()
+            ->add('Proyect', 'text')
+            ->add('Activity', 'text')
+            ->add('User', 'text')            
+            ->add('Init', 'text')
+            ->add('End', 'text')            
+            ->getForm();
 
         return array(
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'form' => $form->createView(),
         );
     }
     /**
