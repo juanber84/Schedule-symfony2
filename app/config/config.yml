@@ -30,7 +30,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ Juanber84ScheduleBundle , FOSUserBundle]
+    bundles:        [ 'Juanber84ScheduleBundle' , 'FOSUserBundle']
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

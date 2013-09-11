@@ -20,10 +20,10 @@ class AppKernel extends Kernel
             new Fourcoders\Bundle\CrudgenerateBundle\FourcodersCrudgenerateBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Fourcoders\Bundle\CacheclearBundle\FourcodersCacheclearBundle(),
+            new Juanber84\Bundle\ScheduleBundle\Juanber84ScheduleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] =             new Juanber84\Bundle\ScheduleBundle\Juanber84ScheduleBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
