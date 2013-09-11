@@ -36,27 +36,25 @@ class JobsController extends Controller
             $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
             $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId;
             $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
-        }
-
-        $query = $em->createQuery($dql);
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            10/*limit per page*/
-        );      
+        }   
 
         $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
+        $arrayproyects = array();
+        foreach ($proyects as $value) {
+            $arrayproyects[$value->getId()] = $value->getName();
+        }
         $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
-
+        $arrayactivities = array();
+        foreach ($activities as $value) {
+            $arrayactivities[$value->getId()] = $value->getName();
+        }
         $form = $this->createFormBuilder()
             ->add('Proyect', 'choice', array(
-                'choices'   => $proyects,
+                'choices'   => $arrayproyects,
                 'required'  => false,
             ))
             ->add('Activity', 'choice', array(
-                'choices'   => $activities,
+                'choices'   => $arrayactivities,
                 'required'  => false,
             ))      
             ->add('User', 'choice', array(
@@ -70,16 +68,50 @@ class JobsController extends Controller
                 'required'  => false,
             ))            
             ->getForm();
+
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                // perform some action, such as saving the task to the database
-                echo "string"; exit;
-                return $this->redirect($this->generateUrl('task_success'));
+                $formrequest = $request->request->get('form');
+                /*
+  'Proyect' => string '0' (length=1)
+  'Activity' => string '1' (length=1)
+  'User' => string '$profileId' (length=10)
+  'Init' => string '2013-09-19' (length=10)
+  'End' => string '2013-09-17' (length=10)
+                
+                 */
+                $param1 = '';
+                if ($formrequest['Proyect'] != '') {
+                    $param1 = ' and a.proyectid ='.$formrequest['Proyect'];
+                }
+                $param2 = '';
+                if ($formrequest['Activity'] != '') {
+                    $param2 = ' and a.activityid ='.$formrequest['Activity'];
+                }                
+                if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where 1 = 1".$param1.$param2;
+                    $users = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:User')->findAll();
+                }else{
+                    $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2;
+                    $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
+                }
+
+                //echo $dql; exit;
+
             }
         }
 
+        $query = $em->createQuery($dql);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );   
 
         return array(
             'pagination' => $pagination,
