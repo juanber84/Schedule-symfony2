@@ -32,10 +32,14 @@ class JobsController extends Controller
         if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a";
             $users = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:User')->findAll();
+            $arrayusers= array();
+            foreach ($users as $value) {
+                $arrayusers[$value->getId()] = $value->getUsername();
+            }                
         }else{
             $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
             $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId;
-            $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
+            $arrayusers = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
         }   
 
         $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
@@ -58,7 +62,7 @@ class JobsController extends Controller
                 'required'  => false,
             ))      
             ->add('User', 'choice', array(
-                'choices'   => $users,
+                'choices'   => $arrayusers,
                 'required'  => false,
             ))                 
             ->add('Init', 'text', array(
@@ -75,8 +79,6 @@ class JobsController extends Controller
             if ($form->isValid()) {
                 $formrequest = $request->request->get('form');
                 /*
-  'Proyect' => string '0' (length=1)
-  'Activity' => string '1' (length=1)
   'User' => string '$profileId' (length=10)
   'Init' => string '2013-09-19' (length=10)
   'End' => string '2013-09-17' (length=10)
@@ -89,13 +91,17 @@ class JobsController extends Controller
                 $param2 = '';
                 if ($formrequest['Activity'] != '') {
                     $param2 = ' and a.activityid ='.$formrequest['Activity'];
-                }                
+                }           
+                $param3 = '';
+                if ($formrequest['User'] != '') {
+                    $param3 = ' and a.userid ='.$formrequest['User'];
+                }  
                 if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
-                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where 1 = 1".$param1.$param2;
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where 1 = 1".$param1.$param2.$param3;
                     $users = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:User')->findAll();
                 }else{
                     $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
-                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2;
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2.$param3;
                     $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
                 }
 
