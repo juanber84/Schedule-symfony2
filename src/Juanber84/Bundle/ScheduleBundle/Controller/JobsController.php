@@ -79,9 +79,9 @@ class JobsController extends Controller
             if ($form->isValid()) {
                 $formrequest = $request->request->get('form');
                 /*
-  'User' => string '$profileId' (length=10)
-  'Init' => string '2013-09-19' (length=10)
-  'End' => string '2013-09-17' (length=10)
+
+              'Init' => string '2013-09-19' (length=10)
+              'End' => string '2013-09-17' (length=10)
                 
                  */
                 $param1 = '';
@@ -96,12 +96,20 @@ class JobsController extends Controller
                 if ($formrequest['User'] != '') {
                     $param3 = ' and a.userid ='.$formrequest['User'];
                 }  
+                $param4 = '';
+                if ($formrequest['Init'] != '') {
+                    $param4 = " and a.initdatetime > '".$formrequest["Init"]." 00:00:00'";
+                }       
+                $param5 = '';   
+                if ($formrequest['End'] != '') {
+                    $param5 = " and a.enddatetime < '".$formrequest["End"]." 23:59:59'";
+                }    
                 if (true === $this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
-                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where 1 = 1".$param1.$param2.$param3;
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where 1 = 1".$param1.$param2.$param3.$param4.$param5;
                     $users = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:User')->findAll();
                 }else{
                     $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
-                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2.$param3;
+                    $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2.$param3.$param4.$param5;
                     $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
                 }
 
