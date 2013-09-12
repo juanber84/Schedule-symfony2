@@ -78,12 +78,6 @@ class JobsController extends Controller
 
             if ($form->isValid()) {
                 $formrequest = $request->request->get('form');
-                /*
-
-              'Init' => string '2013-09-19' (length=10)
-              'End' => string '2013-09-17' (length=10)
-                
-                 */
                 $param1 = '';
                 if ($formrequest['Proyect'] != '') {
                     $param1 = ' and a.proyectid ='.$formrequest['Proyect'];
@@ -112,9 +106,6 @@ class JobsController extends Controller
                     $dql   = "SELECT a FROM 'Juanber84ScheduleBundle:Jobs' a where a.userid = ".$profileId.$param1.$param2.$param3.$param4.$param5;
                     $users = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
                 }
-
-                //echo $dql; exit;
-
             }
         }
 
