@@ -45,8 +45,8 @@ class DefaultController extends Controller
                 $proyect = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findOneById($punch['proyect']);
                 $activitie = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findOneById($punch['activity']);
                 if ($job->getEnddatetime() == null && $job->getInitdatetime() == null) {
-                    $job->setInitdatetime(new \DateTime('now'));
                     $inittime = new \DateTime('now');
+                    $job->setInitdatetime($inittime);
                 }else{
                     if ($job->getEnddatetime() == null) {
                         $job->setEnddatetime(new \DateTime('now'));

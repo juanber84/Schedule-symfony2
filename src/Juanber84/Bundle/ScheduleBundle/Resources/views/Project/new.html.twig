@@ -1,7 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Project creation</h1>
+    <h4 class="text book inline"><span class="icon folder-close color theme "></span> Projects creation</h4>   
 
     <form action="{{ path('admin_projects_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
