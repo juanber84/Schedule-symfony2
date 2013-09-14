@@ -8,8 +8,13 @@
 	{% stylesheets 'bundles/juanber84schedule/css/*' filter='cssrewrite' %}
     	<link rel="stylesheet" href="{{ asset_url }}" />
 	{% endstylesheets %}
+    {#
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+#}
+    {% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}    
     <style>
         aside > header .logo {
             margin-top: 10px;
@@ -120,9 +125,6 @@
         </footer>
     </section>
 
-	{#% javascripts '@Juanber84ScheduleBundle/Resources/public/js/*' %}
-	    <script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %#}    
 
 </body>
 </html>

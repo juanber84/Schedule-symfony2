@@ -36,7 +36,7 @@ class DefaultController extends Controller
         if (!$job) {
             $job = new Jobs();
         }
-
+        $inittime = '';
         if ($request->getMethod() == 'POST') {
 
             $punch = $request->request->get('punch');
@@ -46,10 +46,12 @@ class DefaultController extends Controller
                 $activitie = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findOneById($punch['activity']);
                 if ($job->getEnddatetime() == null && $job->getInitdatetime() == null) {
                     $job->setInitdatetime(new \DateTime('now'));
+                    $inittime = new \DateTime('now');
                 }else{
                     if ($job->getEnddatetime() == null) {
                         $job->setEnddatetime(new \DateTime('now'));
                         $job->setObservations($punch['observations']);  
+                        $inittime = '';
                     }else{
                         //$job->setInitdatetime(new \DateTime('now'));
                     }                
@@ -60,6 +62,8 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($job);
                 $em->flush();
+
+
             }
             $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null));            
         }
@@ -68,6 +72,7 @@ class DefaultController extends Controller
             'job'           => $job,
             'proyects'      => $proyects,
             'activities'    => $activities,
+            'inittime'      => $inittime,
         );
     }
 
