@@ -29,14 +29,21 @@ class DefaultController extends Controller
      */
     public function scheduleAction(Request $request)
     {
+        $totaltrabajado = '';
         $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
         $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
 
         $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null));
         if (!$job) {
             $job = new Jobs();
+            $inittime = '';
+        } else {
+            $inittime = $job->getInitdatetime();
+            $inittime = $inittime->format('Y-m-d H:i:s');
+            $nowtime = strtotime('now');
+            $totaltrabajado = round(($nowtime-strtotime($inittime)));
         }
-        $inittime = '';
+
         if ($request->getMethod() == 'POST') {
 
             $punch = $request->request->get('punch');
@@ -73,6 +80,7 @@ class DefaultController extends Controller
             'proyects'      => $proyects,
             'activities'    => $activities,
             'inittime'      => $inittime,
+            'totaltrabajado'=> $totaltrabajado,
         );
     }
 

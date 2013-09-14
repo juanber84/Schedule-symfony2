@@ -1,5 +1,19 @@
 {% extends 'Juanber84ScheduleBundle::layout.html.twig' %}
 
+
+{% block clock %}
+        <script>
+            $(function() {
+                $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                var clock = $('.your-clock').FlipClock({
+                    // ... your options here
+                });
+                clock.setTime({{totaltrabajado}});
+            });
+        </script> 
+{% endblock %}
+   
+
 {% block body -%}
     <h4 class="text book inline"><span class="icon laptop color theme "></span> Punch </h4>
     
