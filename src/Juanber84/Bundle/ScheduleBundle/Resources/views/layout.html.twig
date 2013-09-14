@@ -55,12 +55,17 @@
         }
 
     </style>
-
-  <script>
-  $(function() {
-    $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-  });
-  </script>    
+    {% if inittime != '' %}
+        <script>
+            $(function() {
+                $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                var clock = $('.your-clock').FlipClock({
+                    // ... your options here
+                });
+                clock.setTime(3600);
+            });
+        </script>    
+    {% endif %}
 </head>
 <body data-tuktuk="boxes">
 
