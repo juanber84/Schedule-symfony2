@@ -37,6 +37,7 @@ class DefaultController extends Controller
         if (!$job) {
             $job = new Jobs();
             $inittime = '';
+            $totaltrabajado = 0;
         } else {
             $inittime = $job->getInitdatetime();
             $inittime = $inittime->format('Y-m-d H:i:s');

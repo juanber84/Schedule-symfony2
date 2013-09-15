@@ -5,7 +5,90 @@
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs creation</h4>    
 
     <form action="{{ path('schedule_jobs_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(form.initdatetime.date.month) }}
+            {{ form_errors(form.initdatetime.date.month) }}
+            {{ form_widget(form.initdatetime.date.month) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.initdatetime.date.day) }}
+            {{ form_errors(form.initdatetime.date.day) }}
+            {{ form_widget(form.initdatetime.date.day) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.initdatetime.date.year) }}
+            {{ form_errors(form.initdatetime.date.year) }}
+            {{ form_widget(form.initdatetime.date.year) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.initdatetime.time.hour) }}
+            {{ form_errors(form.initdatetime.time.hour) }}
+            {{ form_widget(form.initdatetime.time.hour) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.initdatetime.time.minute) }}
+            {{ form_errors(form.initdatetime.time.minute) }}
+            {{ form_widget(form.initdatetime.time.minute) }}            
+        </div>                                
+    </div>
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(form.enddatetime.date.month) }}
+            {{ form_errors(form.enddatetime.date.month) }}
+            {{ form_widget(form.enddatetime.date.month) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.enddatetime.date.day) }}
+            {{ form_errors(form.enddatetime.date.day) }}
+            {{ form_widget(form.enddatetime.date.day) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.enddatetime.date.year) }}
+            {{ form_errors(form.enddatetime.date.year) }}
+            {{ form_widget(form.enddatetime.date.year) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.enddatetime.time.hour) }}
+            {{ form_errors(form.enddatetime.time.hour) }}
+            {{ form_widget(form.enddatetime.time.hour) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.enddatetime.time.minute) }}
+            {{ form_errors(form.enddatetime.time.minute) }}
+            {{ form_widget(form.enddatetime.time.minute) }}            
+        </div>                                
+    </div>
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(form.userid) }}
+            {{ form_errors(form.userid) }}
+            {{ form_widget(form.userid) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.projectid) }}
+            {{ form_errors(form.projectid) }}
+            {{ form_widget(form.projectid) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(form.activityid) }}
+            {{ form_errors(form.activityid) }}
+            {{ form_widget(form.activityid) }}  
+        </div>                                        
+    </div> 
+
+    <div class="column_10">
+        <div class="column_9">
+            {{ form_label(form.observations) }}
+            {{ form_errors(form.observations) }}
+            {{ form_widget(form.observations) }}            
+        </div>                                        
+    </div>        
+
+        {{ form_rest(form) }}
         <ul class="record_actions">
             <li>
             <button type="submit">Create</button>
