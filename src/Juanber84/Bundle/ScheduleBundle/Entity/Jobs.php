@@ -32,14 +32,14 @@ class Jobs
     private $userid;
 
     /**
-     * @var \proyectid
+     * @var \projectid
      *
-     * @ORM\ManyToOne(targetEntity="Proyects")
+     * @ORM\ManyToOne(targetEntity="Project")
      * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="proyectid", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="projectid", referencedColumnName="id", nullable=false)
      * })
      */      
-    private $proyectid;
+    private $projectid;
 
     /**
      * @var \activityid
@@ -105,24 +105,24 @@ class Jobs
     }
 
     /**
-     * Set proyectid
+     * Set projectid
      *
-     * @param \Juanber84\Bundle\ScheduleBundle\Entity\Proyects $proyectid
-     * @return proyectid
+     * @param \Juanber84\Bundle\ScheduleBundle\Entity\Project $projectid
+     * @return projectid
      */        
-    public function setProyectid(\Juanber84\Bundle\ScheduleBundle\Entity\Proyects $proyectid = null)
+    public function setProjectid(\Juanber84\Bundle\ScheduleBundle\Entity\Project $projectid = null)
     {
-        $this->proyectid = $proyectid;
+        $this->projectid = $projectid;
     }
 
     /**
-     * Get proyectid
+     * Get projectid
      *
-     * @return \Juanber84\ModelBundle\Entity\Proyects
+     * @return \Juanber84\ModelBundle\Entity\Project
      */       
-    public function getProyectid()
+    public function getProjectid()
     {
-        return $this->proyectid;
+        return $this->projectid;
     }
 
     /**

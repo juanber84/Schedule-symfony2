@@ -19,7 +19,7 @@ class JobsType extends AbstractType
             ->add('enddatetime')
             ->add('observations')
             ->add('userid')
-            ->add('proyectid')
+            ->add('projectid')
             ->add('activityid')
         ;
     }

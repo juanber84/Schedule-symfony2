@@ -91,4 +91,10 @@ class Project
     {
         return $this->details;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }

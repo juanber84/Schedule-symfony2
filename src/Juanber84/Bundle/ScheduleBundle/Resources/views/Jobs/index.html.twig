@@ -55,7 +55,7 @@
                     <th>{{ 'User' }} </th>              
                     <th>{{ knp_pagination_sortable(pagination, 'Initdatetime', 'a.initdatetime') }} </th> 
                     <th>{{ knp_pagination_sortable(pagination, 'Enddatetime', 'a.enddatetime') }} </th>  
-                    <th>{{ 'Proyect' }} </th>
+                    <th>{{ 'Project' }} </th>
                     <th>{{ 'Activity' }} </th>
                     <th>Actions</th>
                 </tr>
@@ -67,7 +67,7 @@
                     <td>{{ entity.userid }}</td>
                     <td>{% if entity.initdatetime %}{{ entity.initdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                     <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    <td>{{ entity.proyectid }}</td>
+                    <td>{{ entity.projectid }}</td>
                     <td>{{ entity.activityid }}</td>
                     <td>
                     <ul>
