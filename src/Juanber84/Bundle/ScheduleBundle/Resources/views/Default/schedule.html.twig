@@ -28,7 +28,7 @@
     	<ul>
     	{% for project in projects %}
     		<li>
-    			{% if job.proyectid.id is defined and project.id == job.proyectid.id %}
+    			{% if job.projectid.id is defined and project.id == job.projectid.id %}
     				<input type="radio" name="punch[project]" checked="checked" value="{{project.id}}"> {{project.name}}    			
     			{% else %}
     				<input type="radio" name="punch[project]" value="{{project.id}}"> {{project.name}}    			
@@ -52,7 +52,7 @@
     	{% endfor %}
     	</ul>    	
     </div>
-    <br><br><br><br>	{% if job.proyectid.id is defined %}
+    <br><br><br><br>	{% if job.projectid.id is defined %}
 	<div class="column_9">
 		<textarea name="punch[observations]"></textarea> 			
 	</div>
@@ -60,7 +60,7 @@
 	{% endif %}        
     <div class="column_9">
     	<br>
-		{% if job.proyectid.id is defined %}
+		{% if job.projectid.id is defined %}
 			<button type="submit" style="width:50%;height: 200px;">Fin</button> 			
 		{% else %}
     		<button type="submit" style="width:50%;height: 200px;">Inicio</button>   			
