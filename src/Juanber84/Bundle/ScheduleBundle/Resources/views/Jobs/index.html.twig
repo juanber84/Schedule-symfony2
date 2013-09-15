@@ -7,7 +7,7 @@
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs list</h4>
     </div></div>
 
-
+    <br><br><br>
     <div class="column_10">
         <form method="post" action="{{path('schedule_jobs')}}">
             {{ form_errors(form) }}
@@ -42,6 +42,7 @@
                 {{ form_errors(form.End) }}
                 {{ form_widget(form.End, {'attr': {'class': 'datepicker'}}) }}
             </div>        
+        
             <div class="column_4 ">
                 <Button type="submit" />Filter</button>
                 <a class="button secondary" href="{{path('schedule_jobs')}}">Clean</a>
@@ -50,7 +51,7 @@
 
         {{ form_end(form) }}
     </div>
-
+<br><br><br>
     <div class="column_10">
         <div class="column_9">
 

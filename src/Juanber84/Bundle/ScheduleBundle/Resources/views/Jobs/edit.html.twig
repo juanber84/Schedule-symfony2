@@ -5,7 +5,7 @@
                 <div class="column_3">
     <h4 class="text book inline"><span class="icon pencil color theme "></span> Jobs edit</h4>    
     </div></div>
-
+<br><br><br>
 
     <form action="{{ path('schedule_jobs_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
