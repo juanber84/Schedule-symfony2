@@ -42,9 +42,9 @@ class JobsController extends Controller
             $arrayusers = array('$profileId' => $this->container->get('security.context')->getToken()->getUser()->getUsername(), );
         }   
 
-        $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
+        $projects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Project')->findAll();
         $arrayproyects = array();
-        foreach ($proyects as $value) {
+        foreach ($projects as $value) {
             $arrayproyects[$value->getId()] = $value->getName();
         }
         $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
@@ -53,7 +53,7 @@ class JobsController extends Controller
             $arrayactivities[$value->getId()] = $value->getName();
         }
         $form = $this->createFormBuilder()
-            ->add('Proyect', 'choice', array(
+            ->add('Project', 'choice', array(
                 'choices'   => $arrayproyects,
                 'required'  => false,
             ))
@@ -79,8 +79,8 @@ class JobsController extends Controller
             if ($form->isValid()) {
                 $formrequest = $request->request->get('form');
                 $param1 = '';
-                if ($formrequest['Proyect'] != '') {
-                    $param1 = ' and a.proyectid ='.$formrequest['Proyect'];
+                if ($formrequest['Project'] != '') {
+                    $param1 = ' and a.projectid ='.$formrequest['Project'];
                 }
                 $param2 = '';
                 if ($formrequest['Activity'] != '') {

@@ -64,7 +64,7 @@ class DefaultController extends Controller
                     }                
                 }
                 $job->setUserId($profileId);
-                $job->setProyectid($project);
+                $job->setProjectid($project);
                 $job->setActivityid($activitie);            
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($job);
