@@ -24,14 +24,14 @@
     <br><br>
     <form action="" method="post">
     <div class="column_9">
-    	<span class="icon folder-close"></span> Proyects <br><br>
+    	<span class="icon folder-close"></span> Projects <br><br>
     	<ul>
-    	{% for proyect in proyects %}
+    	{% for project in projects %}
     		<li>
-    			{% if job.proyectid.id is defined and proyect.id == job.proyectid.id %}
-    				<input type="radio" name="punch[proyect]" checked="checked" value="{{proyect.id}}"> {{proyect.name}}    			
+    			{% if job.proyectid.id is defined and project.id == job.proyectid.id %}
+    				<input type="radio" name="punch[project]" checked="checked" value="{{project.id}}"> {{project.name}}    			
     			{% else %}
-    				<input type="radio" name="punch[proyect]" value="{{proyect.id}}"> {{proyect.name}}    			
+    				<input type="radio" name="punch[project]" value="{{project.id}}"> {{project.name}}    			
     			{% endif %}
     		</li>
     	{% endfor %}

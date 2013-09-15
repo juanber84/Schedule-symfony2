@@ -30,7 +30,7 @@ class DefaultController extends Controller
     public function scheduleAction(Request $request)
     {
         $totaltrabajado = '';
-        $proyects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findAll();
+        $projects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Project')->findAll();
         $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
 
         $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null));
@@ -49,7 +49,7 @@ class DefaultController extends Controller
             $punch = $request->request->get('punch');
             if ($punch != null) {
                 $profileId  = $user = $this->get('security.context')->getToken()->getUser(); 
-                $proyect = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Proyects')->findOneById($punch['proyect']);
+                $project = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Project')->findOneById($punch['project']);
                 $activitie = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findOneById($punch['activity']);
                 if ($job->getEnddatetime() == null && $job->getInitdatetime() == null) {
                     $inittime = new \DateTime('now');
@@ -64,7 +64,7 @@ class DefaultController extends Controller
                     }                
                 }
                 $job->setUserId($profileId);
-                $job->setProyectid($proyect);
+                $job->setProyectid($project);
                 $job->setActivityid($activitie);            
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($job);
@@ -77,7 +77,7 @@ class DefaultController extends Controller
 
         return array(
             'job'           => $job,
-            'proyects'      => $proyects,
+            'projects'      => $projects,
             'activities'    => $activities,
             'inittime'      => $inittime,
             'totaltrabajado'=> $totaltrabajado,
