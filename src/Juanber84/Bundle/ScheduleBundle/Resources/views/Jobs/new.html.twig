@@ -88,18 +88,22 @@
         </div>                                        
     </div>        
 
-        {{ form_rest(form) }}
-        <ul class="record_actions">
-            <li>
-            <button type="submit">Create</button>
-        </li>
-    </form>
+    <div class="column_10">
+        <div class="column_9">
+            {{ form_rest(form) }}
+            <ul class="record_actions">
+                <li>
+                <button type="submit">Create</button>
+            </li>
+        </form>
 
 
-    <li>
-        <a class="button secondary" href="{{ path('schedule_jobs') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                <li>
+                    <a class="button secondary" href="{{ path('schedule_jobs') }}">
+                        Back to the list
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

@@ -6,7 +6,92 @@
 
     <form action="{{ path('schedule_jobs_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
-        {{ form_widget(edit_form) }}
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(edit_form.initdatetime.date.month) }}
+            {{ form_errors(edit_form.initdatetime.date.month) }}
+            {{ form_widget(edit_form.initdatetime.date.month) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.initdatetime.date.day) }}
+            {{ form_errors(edit_form.initdatetime.date.day) }}
+            {{ form_widget(edit_form.initdatetime.date.day) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.initdatetime.date.year) }}
+            {{ form_errors(edit_form.initdatetime.date.year) }}
+            {{ form_widget(edit_form.initdatetime.date.year) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.initdatetime.time.hour) }}
+            {{ form_errors(edit_form.initdatetime.time.hour) }}
+            {{ form_widget(edit_form.initdatetime.time.hour) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.initdatetime.time.minute) }}
+            {{ form_errors(edit_form.initdatetime.time.minute) }}
+            {{ form_widget(edit_form.initdatetime.time.minute) }}            
+        </div>                                
+    </div>
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(edit_form.enddatetime.date.month) }}
+            {{ form_errors(edit_form.enddatetime.date.month) }}
+            {{ form_widget(edit_form.enddatetime.date.month) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.enddatetime.date.day) }}
+            {{ form_errors(edit_form.enddatetime.date.day) }}
+            {{ form_widget(edit_form.enddatetime.date.day) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.enddatetime.date.year) }}
+            {{ form_errors(edit_form.enddatetime.date.year) }}
+            {{ form_widget(edit_form.enddatetime.date.year) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.enddatetime.time.hour) }}
+            {{ form_errors(edit_form.enddatetime.time.hour) }}
+            {{ form_widget(edit_form.enddatetime.time.hour) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.enddatetime.time.minute) }}
+            {{ form_errors(edit_form.enddatetime.time.minute) }}
+            {{ form_widget(edit_form.enddatetime.time.minute) }}            
+        </div>                                
+    </div>
+
+    <div class="column_10">
+        <div class="column_3">
+            {{ form_label(edit_form.userid) }}
+            {{ form_errors(edit_form.userid) }}
+            {{ form_widget(edit_form.userid) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.projectid) }}
+            {{ form_errors(edit_form.projectid) }}
+            {{ form_widget(edit_form.projectid) }}            
+        </div>
+        <div class="column_3">
+            {{ form_label(edit_form.activityid) }}
+            {{ form_errors(edit_form.activityid) }}
+            {{ form_widget(edit_form.activityid) }}  
+        </div>                                        
+    </div> 
+
+    <div class="column_10">
+        <div class="column_9">
+            {{ form_label(edit_form.observations) }}
+            {{ form_errors(edit_form.observations) }}
+            {{ form_widget(edit_form.observations) }}            
+        </div>                                        
+    </div>     
+
+    {{ form_rest(edit_form) }}
+    <div class="column_10">
+        <div class="column_9">
         <ul class="record_actions">
             <li>
             <button type="submit">Edit</button>
@@ -27,4 +112,5 @@
         </form>
     </li>
 </ul>
+</div> </div> 
 {% endblock %}
