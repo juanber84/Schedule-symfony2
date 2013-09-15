@@ -15,15 +15,19 @@
    
 
 {% block body -%}
+            <div class="column_10">
+                <div class="column_3">
     <h4 class="text book inline"><span class="icon laptop color theme "></span> Punch </h4>
-    
+    </div>
+    </div>
     <br><br>
     {% if inittime != '' %}
         <div class="your-clock"></div>
     {% endif %}
     <br><br>
     <form action="" method="post">
-    <div class="column_9">
+    <div class="column_10">
+        <div class="column_9">
     	<span class="icon folder-close"></span> Projects <br><br>
     	<ul>
     	{% for project in projects %}
@@ -65,6 +69,7 @@
 		{% else %}
     		<button type="submit" style="width:50%;height: 200px;">Inicio</button>   			
 		{% endif %}    	
+    </div>
     </div>
     </form>
 
