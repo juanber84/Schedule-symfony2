@@ -56,6 +56,11 @@
 
     </style>
     {% block clock %}{% endblock %}
+            <script>
+            $(function() {
+                $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            });
+        </script> 
 </head>
 <body data-tuktuk="boxes">
 
