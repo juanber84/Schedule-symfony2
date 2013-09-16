@@ -110,7 +110,18 @@ class JobsController extends Controller
         }
 
         $query = $em->createQuery($dql);
-
+        $registers = $query->getResult();
+        $numberregisters = count($query);
+        $numberhours = 0;
+        foreach ($registers as $key => $value) {
+            if ($value->getEnddatetime() != null ) {
+                $numberhours = $numberhours + (strtotime($value->getEnddatetime()->format('Y-m-d H:i:s'))-strtotime($value->getInitdatetime()->format('Y-m-d H:i:s')));
+            }
+        }
+        $hours = (int)($numberhours/60/60);
+        $numberhours = $numberhours - ($hours*60*60);
+        $minutes = (int)($numberhours/60);
+        $seconds = $numberhours - ($minutes*60);
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query,
@@ -119,8 +130,12 @@ class JobsController extends Controller
         );   
 
         return array(
-            'pagination' => $pagination,
-            'form' => $form->createView(),
+            'pagination'        => $pagination,
+            'form'              => $form->createView(),
+            'numberregisters'   => $numberregisters,
+            'hours'             => $hours,
+            'minutes'           => $minutes,
+            'seconds'           => $seconds,
         );
     }
 
