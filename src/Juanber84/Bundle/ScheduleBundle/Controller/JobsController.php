@@ -113,8 +113,13 @@ class JobsController extends Controller
         $registers = $query->getResult();
         $numberregisters = count($query);
         $numberhours = 0;
+        $raised = 0;
         foreach ($registers as $key => $value) {
             if ($value->getEnddatetime() != null ) {
+                $timed = (strtotime($value->getEnddatetime()->format('Y-m-d H:i:s'))-strtotime($value->getInitdatetime()->format('Y-m-d H:i:s')))/60/60;
+                if ($value->getProjectid()->getPrice() != '') {
+                    $raised = $raised + ($value->getProjectid()->getPrice()*$timed);# code...
+                }
                 $numberhours = $numberhours + (strtotime($value->getEnddatetime()->format('Y-m-d H:i:s'))-strtotime($value->getInitdatetime()->format('Y-m-d H:i:s')));
             }
         }
@@ -136,6 +141,7 @@ class JobsController extends Controller
             'hours'             => $hours,
             'minutes'           => $minutes,
             'seconds'           => $seconds,
+            'raised'            => $raised,
         );
     }
 
