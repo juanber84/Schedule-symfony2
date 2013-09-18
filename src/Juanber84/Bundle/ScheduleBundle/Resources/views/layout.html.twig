@@ -81,12 +81,12 @@
 			{% else %}
                 <a href="{{path('schedule_jobs')}}" ><span class="icon pencil"></span>Jobs</a>
 			{% endif %}      
-			{% if is_granted('ROLE_ADMIN') %}  	
-				{% if menu == 'admin_projects' or menu == 'admin_projects_new' or menu == 'admin_projects_edit' or menu == 'admin_projects_show' %}
-	                <a href="{{path('admin_projects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
-				{% else %}
-	                <a href="{{path('admin_projects')}}"><span class="icon folder-close"></span>Projects</a>
-				{% endif %}     
+			{% if menu == 'admin_projects' or menu == 'admin_projects_new' or menu == 'admin_projects_edit' or menu == 'admin_projects_show' %}
+                <a href="{{path('admin_projects')}}" class="active"><span class="icon folder-close"></span>Proyects</a>
+			{% else %}
+                <a href="{{path('admin_projects')}}"><span class="icon folder-close"></span>Projects</a>
+			{% endif %}  
+            {% if is_granted('ROLE_ADMIN') %}   
 				{% if menu == 'schedule_activitys' or menu == 'schedule_activitys_new' or menu == 'schedule_activitys_edit' or menu == 'schedule_activitys_show' %}
 	                <a href="{{path('schedule_activitys')}}" class="active"><span class="icon exchange"></span>Activities</a>
 				{% else %}

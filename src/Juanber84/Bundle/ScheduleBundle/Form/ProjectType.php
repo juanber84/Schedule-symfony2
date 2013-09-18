@@ -17,6 +17,7 @@ class ProjectType extends AbstractType
         $builder
             ->add('name')
             ->add('details')
+            ->add('price')
         ;
     }
     

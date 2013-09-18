@@ -31,10 +31,16 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(name="details", type="string", length=255)
+     * @ORM\Column(name="details", type="string", length=255, nullable=true)
      */
     private $details;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="string", length=255, nullable=true)
+     */
+    private $price;
 
     /**
      * Get id
@@ -90,6 +96,29 @@ class Project
     public function getDetails()
     {
         return $this->details;
+    }
+
+    /**
+     * Set details
+     *
+     * @param string $price
+     * @return Project
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     public function __toString()
