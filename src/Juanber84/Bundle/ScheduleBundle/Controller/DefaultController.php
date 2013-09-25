@@ -35,7 +35,7 @@ class DefaultController extends Controller
 
         $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
 
-        $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null, 'userid' => $profileId->getId()));
+        $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null, 'userid' => $profileId ));
         if (!$job) {
             $job = new Jobs();
             $inittime = '';
