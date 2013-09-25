@@ -33,7 +33,9 @@ class DefaultController extends Controller
         $projects = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Project')->findAll();
         $activities = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Activity')->findAll();
 
-        $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null));
+        $profileId  = $this->container->get('security.context')->getToken()->getUser()->getId();
+
+        $job = $this->getDoctrine()->getRepository('Juanber84ScheduleBundle:Jobs')->findOneBy(array('enddatetime' => null, 'userid' => $profileId->getId()));
         if (!$job) {
             $job = new Jobs();
             $inittime = '';
