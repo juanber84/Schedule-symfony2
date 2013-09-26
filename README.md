@@ -12,3 +12,11 @@ Run in your terminal
 	php app/console doctrine:database:create
 	
 	php app/console doctrine:schema:update --force
+
+Create a user admin
+    
+    fos:user:create
+
+After you must give a role
+
+    fos:user:promote
